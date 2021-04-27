@@ -7,6 +7,6 @@ script:
   - echo 'Installing Dependecies'
   - npm install  
   - echo 'Running tests'
-  - mocha
+  - npm test
 
   
