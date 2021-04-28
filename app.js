@@ -1,10 +1,27 @@
 const express = require('express');
 const app =  express();
+const User = require("./models/userModel");
 
-const PORT = 5000 || process.env.PORT;
+const mongoose = require("mongoose");
+require('dotenv').config();
+mongoose.connect(
+  process.env.MONGODB_URL,
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  },
+  () => console.log("mongoDB is connected")
+);
 
-app.listen(PORT, () => console.log(`Server is started at http://localhost:${PORT}`));
-
+app.post("/signup", async (req, res) => {
+//   const { name, email } = req.body;
+  const user = new User({ name :"Ankur" });
+  const ret = await user.save();
+  res.json(ret);
+});
 app.get("/", (req,res) => {
     res.status(200).send("Everything is Working");
 })
+module.exports = app;
