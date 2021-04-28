@@ -28,6 +28,21 @@ describe("SAMPLE unit test", () => {
 
         done();
     })
+ 
+      it("responds with json", function (done) {
+        server
+          .post("/users")
+          .send({ name: "john" })
+          .set("Accept", "application/json")
+        //   .expect("Content-Type", /text/)
+          .expect(201)
+          .end(function (err, res) {
+            //   console.log(res)
+            if (err) return done(err);
+            return done();
+          });
+      });
+  
 })
 
 afterAll( async (done) => {
