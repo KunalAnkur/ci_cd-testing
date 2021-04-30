@@ -13,7 +13,7 @@ mongoose.connect(
   },
   () => console.log("mongoDB is connected")
 );
-
+//..................[All the Routes].............
 app.post("/signup", async (req, res) => {
 //   const { name, email } = req.body;
   const user = new User({ name :"Ankur" });
