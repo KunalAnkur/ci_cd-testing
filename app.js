@@ -3,6 +3,7 @@ const app =  express();
 const User = require("./models/userModel");
 const mongoose = require("mongoose");
 require('dotenv').config();
+//mognodb Connection
 mongoose.connect(
   process.env.MONGODB_URL,
   {
